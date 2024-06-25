@@ -24,11 +24,11 @@ def influx_initial_setup():
 def listen_for_data(ser, bucket, write_api):
     while True:
         try:
-            if not serial_data:
-                continue
-            
             serial_data = ser.readline()
             print(serial_data)
+
+            if not serial_data:
+                continue
 
             line = serial_data.decode('utf-8').strip()
         
